@@ -1,7 +1,7 @@
 /**
  *
  */
-package rw.ac.onbank.orm.superclasses;
+package rw.ac.onbank.orm.appDos.deos;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import rw.ac.onbank.orm.util.OnbankFactory;
@@ -9,10 +9,10 @@ import rw.ac.onbank.orm.util.OnbankFactory;
 /**
  * Data access objects supper class
  *
- * @author Aphrodice Rwagaju
+ * @author valens
  */
-public class Dao {
-    protected Dao() {
+public class DAO {
+    protected DAO() {
     }
     /**
      *
@@ -57,7 +57,6 @@ public class Dao {
             System.out.println("Cannot close: " + e.toString());
         }
     }
-
     public void clear() {
         getSession().clear();
     }

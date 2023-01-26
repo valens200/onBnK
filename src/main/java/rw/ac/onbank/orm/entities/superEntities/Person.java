@@ -1,5 +1,9 @@
 package rw.ac.onbank.orm.entities.superEntities;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -9,49 +13,24 @@ import java.util.Date;
 
 
 @MappedSuperclass
-public abstract class Person implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
-    private int id;
-    private String name;
-    private Date date;
+@Data
+public  class Person implements Serializable {
+    private String firstName;
+    private String lastName;
+    private String userName;
+    private String email;
+    private Date dateOfBirth;
     private char gender;
+    private String securityQuestion;
+    private String answer;
+     public   Person ( String firstName, String  lastName, String userName, Date dob,  String email, String password, String question, String answer){
+         this.firstName = firstName;
+         this.lastName = lastName;
+         this.userName = userName;
+         this.email = email;
+         this.dateOfBirth = dob;
+         this.securityQuestion = question;
+         this.answer = answer;
+     }
 
-    public Person(String name, Date date, char gender) {
-        this.name = name;
-        this.date = date;
-        this.gender = gender;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public char getGender() {
-        return gender;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public void setGender(char gender) {
-        this.gender = gender;
-    }
 }
