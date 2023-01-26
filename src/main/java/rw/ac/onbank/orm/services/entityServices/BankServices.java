@@ -1,11 +1,11 @@
-package rw.ac.onbank.orm.transactions.entityTransctions;
+package rw.ac.onbank.orm.services.entityServices;
 
 import rw.ac.onbank.orm.appDos.deos.daos.BankDao;
 import rw.ac.onbank.orm.entities.Bank;
 
 import java.util.List;
 
-public class BankTransaction {
+public class BankServices {
     private BankDao bankDao;
     public Bank saveBank(Bank bank){
        return   bankDao.saveBank(bank);
