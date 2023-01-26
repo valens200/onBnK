@@ -7,9 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="school_management_system" />
+        <module name="onbank" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="onbank" target="1.8" />
       <module name="school_management_system" target="1.8" />
     </bytecodeTargetLevel>
   </component>
