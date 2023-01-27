@@ -4,15 +4,14 @@
     <artifactId>onbank</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>smis</name>
+    <name>onlinebanking</name>
     <properties>
-        <project.java.version>11.0.17.</project.java.version>
+        <project.java.version>19</project.java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
-    <description>School Management Information System is a Software Developed by Aphrodice Rwagaju for the Purpose of Teaching Software Development and Design in RCA</description>
     <build>
-        <finalName>smis##0.1</finalName>
+        <finalName>onlinebanking##0.1</finalName>
         <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
         <testSourceDirectory>${basedir}/src/test/java</testSourceDirectory>
         <resources>
@@ -243,10 +242,10 @@
     </dependencies>
     <developers>
         <developer>
-            <name>valens NIYONSENGA</name>
-            <email>valensniyonsenga2003@gmail.com</email>
+            <name>Israel Manzi</name>
+            <email>manziisrael99@gmail.com</email>
             <roles>
-                <role>Software Programming student</role>
+                <role>Software Developer</role>
             </roles>
         </developer>
     </developers>
