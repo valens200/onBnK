@@ -20,4 +20,7 @@ public  class User extends Person {
     public User(String firstName, String lastName, String userName, Date dob, String email, String password, String question, String answer) {
         super(firstName, lastName, userName, dob, email, password, question, answer);
     }
+    public User(){
+        super();
+    }
 }
