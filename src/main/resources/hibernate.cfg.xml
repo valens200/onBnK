@@ -28,7 +28,6 @@
         <property name="hibernate.c3p0.max_statements">1</property>
         <property name="hibernate.c3p0.timeout">1800</property>
         <!-- Models -->
-        <mapping class="rw.ac.onbank.orm.entities.Address" />
         <mapping class="rw.ac.onbank.orm.entities.Bank" />
         <mapping class="rw.ac.onbank.orm.entities.Beneficially" />
         <mapping class="rw.ac.onbank.orm.entities.Card" />
