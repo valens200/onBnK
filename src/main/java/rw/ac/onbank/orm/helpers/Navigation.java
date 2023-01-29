@@ -21,13 +21,6 @@ public class Navigation  extends  Scanner{
         }
         user.setPassword(password);
     }
-    public  void checkUserName(String name){
-        if(name.length() < 5){
-            printer.printLine("Name should be at least 5 characters");
-            user.setUserName(generateInputs("UserName"));
-        }
-        user.setUserName(name);
-    }
 
     public  void  checkSecurityAnswer(String answer){
         user.setSecurityAnswer(answer);
@@ -66,11 +59,6 @@ public class Navigation  extends  Scanner{
                 printer.print("Enter your SecondName");
                 value = getScanner().nextLine();
                 checkSecondName(value);
-                break;
-            case "UserName":
-                printer.print("Enter your userName");
-                value = getScanner().nextLine();
-                checkUserName(value);
                 break;
             case "securityQuestion":
                 printer.print("Enter your security question");

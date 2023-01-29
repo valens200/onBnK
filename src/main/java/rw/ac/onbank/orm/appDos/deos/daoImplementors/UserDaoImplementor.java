@@ -47,7 +47,7 @@ public class UserDaoImplementor  extends DAO implements UserDao {
         return false;
     }
     @Override
-    public User getUserByEmail( String email)throws  Exception {
+    public User getUserByEmail(String email)throws  Exception {
         Session session = getSession();
         User user = null;
         try{

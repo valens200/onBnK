@@ -9,17 +9,16 @@ import javax.validation.constraints.Null;
 import java.util.Date;
 
 @Entity
-@NoArgsConstructor
 public  class Transaction  extends BankEntities {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "transaction_id", nullable = false)
     private long  transactionId;
     @ManyToOne
-    @JoinColumn(name = "account_id")
+    @JoinColumn(name = "account_id_fromAccount")
     Account fromAccount;
     @ManyToOne
-    @JoinColumn(name = "account_id")
+    @JoinColumn(name = "account_id_toAccount")
     Account toAccount;
     private double amount;
     private TransactionType transactionType;
@@ -49,5 +48,9 @@ public  class Transaction  extends BankEntities {
 
             this.fromAccount.decrementBalance(actualAmount);
         }
+    }
+
+    public Transaction() {
+
     }
 }

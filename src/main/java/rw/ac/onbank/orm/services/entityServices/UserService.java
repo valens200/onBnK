@@ -44,10 +44,8 @@ public class UserService extends Scanner {
         User user = new User();
         System.out.print("Enter your FirstName : ");
         user.setFirstName(getScanner().nextLine());
-        System.out.print("Enter your LastName");
+        System.out.print("Enter your LastName: ");
         user.setLastName(getScanner().nextLine());
-        System.out.print("Enter your userName : ");
-        user.setUserName(getScanner().nextLine());
         System.out.print("Enter your email : ");
         user.setEmail(getScanner().nextLine());
         System.out.print("Enter your password : ");

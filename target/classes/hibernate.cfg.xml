@@ -28,12 +28,13 @@
         <property name="hibernate.c3p0.max_statements">1</property>
         <property name="hibernate.c3p0.timeout">1800</property>
         <!-- Models -->
-        <mapping class="rw.ac.onbank.orm.entities.Bank" />
-        <mapping class="rw.ac.onbank.orm.entities.Beneficially" />
-        <mapping class="rw.ac.onbank.orm.entities.Card" />
-        <mapping class="rw.ac.onbank.orm.entities.Bill" />
-        <mapping class="rw.ac.onbank.orm.entities.Loan" />
         <mapping class="rw.ac.onbank.orm.entities.Account" />
+        <mapping class="rw.ac.onbank.orm.entities.Bank" />
+        <mapping class="rw.ac.onbank.orm.entities.Bill" />
+        <mapping class="rw.ac.onbank.orm.entities.Card" />
+        <mapping class="rw.ac.onbank.orm.entities.Deposit" />
+        <mapping class="rw.ac.onbank.orm.entities.Loan" />
+        <mapping class="rw.ac.onbank.orm.entities.Transaction" />
         <mapping class="rw.ac.onbank.orm.entities.User" />
     </session-factory>
 </hibernate-configuration>

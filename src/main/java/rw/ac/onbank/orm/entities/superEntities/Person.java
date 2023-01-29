@@ -8,41 +8,46 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-
 @MappedSuperclass
-@Data
-public  class Person implements Serializable {
+abstract public class Person implements Serializable {
     @NonNull
-    private String firstName;
+    protected String firstName;
     @NonNull
-    private String lastName;
+    protected String lastName;
     @NonNull
-    private String userName;
+    protected String phone;
+    protected String email;
     @NonNull
-    private String phone;
+    protected Date dateOfBirth;
     @NonNull
-    private Date dateOfBirth;
-    @NonNull
-    private String password;
-    @NonNull
-    @Column(name = "email", unique = true)
-    private String email;
-    private String securityQuestion;
-    private String securityAnswer;
+    protected String password;
+    protected String securityQuestion;
+    protected String securityAnswer;
 
-     public Person ( String firstName, String  lastName, String email, Date dob,  String phone, String password, String question, String answer) throws Exception {
-         this.firstName = firstName;
-         this.lastName = lastName;
-         this.phone = phone;
-         this.dateOfBirth = dob;
-         this.email = email;
-         this.password = PasswordHashing.hashPassword(password);
-         this.securityQuestion = question;
-         this.securityAnswer = answer;
-     }
-     public  Person(){
+    public Person ( String firstName, String  lastName, Date dob,  String phone, String password) throws Exception {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.dateOfBirth = dob;
 
-     }
+        this.password = PasswordHashing.hashPassword(password);
+    }
+
+    public Person(String firstName, String lastName, Date dob, String phone, String password,
+            String question, String answer) throws Exception {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.dateOfBirth = dob;
+        this.password = PasswordHashing.hashPassword(password);
+
+        this.securityQuestion = question;
+        this.securityAnswer = answer;
+    }
+
+    public Person() {
+
+    }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -50,10 +55,6 @@ public  class Person implements Serializable {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 
     public void setPhone(String phone) {
@@ -66,10 +67,6 @@ public  class Person implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public void setSecurityQuestion(String securityQuestion) {
@@ -100,10 +97,6 @@ public  class Person implements Serializable {
         return password;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
     public String getSecurityQuestion() {
         return securityQuestion;
     }
@@ -112,7 +105,11 @@ public  class Person implements Serializable {
         return securityAnswer;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
