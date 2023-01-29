@@ -10,7 +10,6 @@ import java.util.Date;
 
 @Entity
 @Data
-
 public  class Card extends BankEntities {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

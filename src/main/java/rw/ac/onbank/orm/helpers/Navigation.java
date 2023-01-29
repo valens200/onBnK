@@ -28,7 +28,6 @@ public class Navigation  extends  Scanner{
         }
         user.setUserName(name);
     }
-
     public  void  checkSecurityAnswer(String answer){
         user.setSecurityAnswer(answer);
     }

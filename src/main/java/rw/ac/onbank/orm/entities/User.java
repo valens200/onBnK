@@ -7,6 +7,8 @@ import rw.ac.onbank.orm.entities.superEntities.Person;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public  class User extends Person {
@@ -18,6 +20,13 @@ public  class User extends Person {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "account_id")
     private Account account;
+    @OneToMany(
+            cascade = CascadeType.DETACH
+    )
+    @JoinColumn(
+            name = "user_email"
+    )
+    private Set<Account> accounts = new HashSet<Account>();
     
     public User(String firstName, String lastName,  String email, Date dob, String phone, String password, String question, String answer, Long userId, String firstname, String lastname, String phone1, Date dateOfBirth, String password1, String securityQuestion, String securityAnswer) throws Exception {
         super(firstName, lastName, email,  dob, phone, password, question, answer);
