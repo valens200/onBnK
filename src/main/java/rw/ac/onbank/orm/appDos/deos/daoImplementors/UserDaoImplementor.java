@@ -25,7 +25,6 @@ public class UserDaoImplementor  extends DAO implements UserDao {
     public boolean saveUser(User user) {
         boolean isUserCreated = false;
         try{
-
             transaction = session.beginTransaction();
             session.saveOrUpdate(user);
             transaction.commit();
@@ -48,5 +47,6 @@ public class UserDaoImplementor  extends DAO implements UserDao {
         Query query = session.createQuery(" from User where email:email ");
         query.setParameter("email", email);
         return (User) query.list();
+
     }
 }

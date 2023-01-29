@@ -1,33 +1,33 @@
 package rw.ac.onbank.orm.appDos.deos.daoImplementors;
 
-import rw.ac.onbank.orm.appDos.deos.daos.BankDao;
+import rw.ac.onbank.orm.appDos.deos.daos.LoanDao;
 import rw.ac.onbank.orm.appDos.deos.DAO;
-import rw.ac.onbank.orm.entities.Bank;
+import rw.ac.onbank.orm.entities.Loan;
 
 import java.util.List;
 
-public class BankDaoImplementor extends DAO implements BankDao {
+public class LoanDaoImplementor extends DAO implements LoanDao {
 
   
     MessagesAndOptionsPrinter printer = new MessagesAndOptionsPrinter();
     Session session = getSession();
 
     @Override
-    public List<Bank> getAvailableBanks() {
+    public List<Loan> getAllDeLoans() {
         return null;
     }
 
     @Override
-    public Bank getBankById(long id) {
+    public Loan getLoanById(long id) {
         return null;
     }
 
     @Override
-    public Bank saveBank(Bank bank) {
+    public Loan saveLoan(Loan loan) {
 
             try{
                 Transaction transaction = session.beginTransaction();
-                session.saveOrUpdate(bank);
+                session.saveOrUpdate(loan);
                 transaction.commit();
             }catch(Exception e){
                 printer.print("Error" + e.getMessage());
@@ -37,7 +37,7 @@ public class BankDaoImplementor extends DAO implements BankDao {
             }
 
     @Override
-    public boolean deleteBankById(long id) {
+    public boolean deleteLoanById(long id) {
         return false;
     }
 }
