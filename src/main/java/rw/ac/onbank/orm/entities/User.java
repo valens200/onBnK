@@ -10,12 +10,11 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-public  class User extends Person {
+public class User extends Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id", nullable = false)
     private Long userId;
-    private String email;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "account_id")
@@ -25,7 +24,8 @@ public  class User extends Person {
         super(firstName, lastName, dob, phone, password);
     }
 
-    public User(String firstName, String lastName, Date dob, String phone, String password, String question, String answer) throws Exception {
+    public User(String firstName, String lastName, Date dob, String phone, String password, String question,
+            String answer) throws Exception {
         super(firstName, lastName, dob, phone, password, question, answer);
     }
 
@@ -50,14 +50,14 @@ public  class User extends Person {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        super.setEmail(email);
     }
 
     public String getEmail() {
-        return this.email;
+        return super.email;
     }
 
-    public User(){
+    public User() {
         super();
     }
 

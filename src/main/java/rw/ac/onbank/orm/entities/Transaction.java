@@ -14,21 +14,17 @@ public  class Transaction  extends BankEntities {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "transaction_id", nullable = false)
     private long  transactionId;
-
     @ManyToOne
     @JoinColumn(name = "account_id_fromAccount")
     Account fromAccount;
     @ManyToOne
     @JoinColumn(name = "account_id_toAccount")
     Account toAccount;
-
     private double amount;
-
     private TransactionType transactionType;
 
     private Date executionDate = new Date();
     private double interestRate;
-
     public Transaction(Account fromAccount, Account toAccount, double amount, TransactionType transactionType) {
         this.fromAccount = fromAccount;
         this.toAccount = toAccount;
@@ -42,7 +38,6 @@ public  class Transaction  extends BankEntities {
             this.toAccount.incrementBalance(actualAmount);
         }
     }
-
     public Transaction(Account fromAccount, double amount, TransactionType transactionType) {
         this.fromAccount = fromAccount;
         this.amount = amount;

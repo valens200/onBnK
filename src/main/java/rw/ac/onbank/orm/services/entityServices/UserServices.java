@@ -13,7 +13,7 @@ public class UserServices  extends Scanner {
     public List<User> getAllUsers(){
         return  userDao.getAllUsers();
     }
-    public boolean loginUser(){
+    public boolean loginUser() throws Exception {
         User user = new User();
         System.out.println("Enter your email : ");
         user.setEmail(getScanner().nextLine());

@@ -1,8 +1,5 @@
 package rw.ac.onbank.orm.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import rw.ac.onbank.orm.entities.enums.AccountType;
 import rw.ac.onbank.orm.entities.superEntities.BankEntities;
 
@@ -11,16 +8,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Data
-public  class Account extends BankEntities {
+public class Account extends BankEntities {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "account_id", nullable = false)
-    private  long accountId;
+    private long accountId;
     private String accountNumber;
-    private  double balance;
+    private double balance;
     private AccountType accountType;
-
     @ManyToOne
     @JoinColumn(name = "bank_id")
     private Bank bank;

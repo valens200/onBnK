@@ -7,7 +7,6 @@ public enum TransactionType {
     WITHDRAWAL,
     TRANSFER,
     LOAN;
-
     public boolean isValid(Account fromAccount, double amount) {
         switch(this) {
             case DEPOSIT:
