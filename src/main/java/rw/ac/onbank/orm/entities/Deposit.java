@@ -7,7 +7,6 @@ import rw.ac.onbank.orm.entities.superEntities.BankEntities;
 import javax.persistence.*;
 
 @Entity
-@NoArgsConstructor
 public class Deposit  extends BankEntities {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -15,7 +14,6 @@ public class Deposit  extends BankEntities {
     @ManyToOne
     @JoinColumn(name = "account_id")
     private Account account;
-
     private TransactionType transactionType = TransactionType.DEPOSIT;
 
     private double amount;
@@ -27,6 +25,10 @@ public class Deposit  extends BankEntities {
 
         double actualAmount = this.amount - (this.amount*(this.interestRate/100));
 
-        this.account.decrementBalance(actualAmount);
+        this.account.incrementBalance(actualAmount);
+    }
+
+    public Deposit() {
+
     }
 }
