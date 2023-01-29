@@ -4,14 +4,19 @@ import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.jboss.logging.annotations.Param;
 import rw.ac.onbank.orm.appDos.deos.daos.UserDao;
 import rw.ac.onbank.orm.appDos.deos.DAO;
 import rw.ac.onbank.orm.entities.User;
+import rw.ac.onbank.orm.helpers.MessagesAndOptionsPrinter;
 
+import java.io.NotActiveException;
 import java.util.List;
 
+
 public class UserDaoImplementor  extends DAO implements UserDao {
-    private Session session = getSession();
+    MessagesAndOptionsPrinter printer = new MessagesAndOptionsPrinter();
+
     private Transaction transaction = null;
     @Override
     public List<User> getAllUsers() {
@@ -24,15 +29,14 @@ public class UserDaoImplementor  extends DAO implements UserDao {
     @Override
     public boolean saveUser(User user) {
         boolean isUserCreated = false;
+        Session session = getSession();
         try{
-
             transaction = session.beginTransaction();
             session.saveOrUpdate(user);
             transaction.commit();
-            session.close();
             isUserCreated = true;
         }catch (Exception exception){
-            System.out.println("Error : " + exception.getMessage());
+            System.out.println("Errorrr : " + exception.getMessage());
         }
         return isUserCreated;
     }
@@ -43,10 +47,19 @@ public class UserDaoImplementor  extends DAO implements UserDao {
         return false;
     }
     @Override
-    public User getUserByEmail(String email) {
-        transaction = session.beginTransaction();
-        Query query = session.createQuery(" from User where email:email ");
-        query.setParameter("email", email);
-        return (User) query.list();
+    public User getUserByEmail( String email)throws  Exception {
+        Session session = getSession();
+        User user = null;
+        try{
+            transaction = session.beginTransaction();
+            Query query = session.createQuery(" from  User u  where u.email ='" + email + "'");
+            user = (User) query.uniqueResult();
+            session.close();
+        }catch (Exception exception){
+            printer.print("Error : " + exception.getMessage());
+            session.close();
+            return null;
+        }
+       return user;
     }
 }

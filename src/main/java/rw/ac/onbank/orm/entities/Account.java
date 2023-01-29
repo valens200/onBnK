@@ -1,8 +1,6 @@
 package rw.ac.onbank.orm.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Builder;
 import rw.ac.onbank.orm.entities.enums.AccountType;
 import rw.ac.onbank.orm.entities.superEntities.BankEntities;
 
@@ -11,31 +9,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Builder
 public  class Account extends BankEntities {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "account_id", nullable = false)
     private  long accountId;
     private String accountNumber;
     private  double balance;
     private AccountType accountType;
-
     @ManyToOne
     @JoinColumn(name = "bank_id")
     private Bank bank;
-
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "beneficially_id")
     private Beneficially beneficially;
+//    @OneToMany(cascade = CascadeType.ALL)
+//    private List<Transaction> fromTransactions;
 
-    @OneToMany(mappedBy = "fromAccount", cascade = CascadeType.ALL)
-    private List<Transaction> fromTransactions = new ArrayList<Transaction>();
-
-    @OneToMany(mappedBy = "toAccount", cascade = CascadeType.ALL)
-    private List<Transaction> toTransactions = new ArrayList<Transaction>();
+//    @OneToMany(mappedBy = "toAccount", cascade = CascadeType.ALL)
+//    private List<Transaction> toTransactions = new ArrayList<Transaction>();
 
     public double getBalance() {
         return this.balance;
@@ -50,7 +43,6 @@ public  class Account extends BankEntities {
 
         return balance;
     }
-
     public double decrementBalance(double amount) {
         this.balance = this.balance - amount;
 

@@ -9,7 +9,7 @@ public interface UserDao {
     public User getUserById(long id);
     public  boolean saveUser(User user);
     public boolean deleteUserById(long id);
-    public User getUserByEmail(String email);
+    public User getUserByEmail(String email) throws  Exception;
 
 
 }
