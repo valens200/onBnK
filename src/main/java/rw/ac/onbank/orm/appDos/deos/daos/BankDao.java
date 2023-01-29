@@ -7,7 +7,7 @@ import java.util.List;
 public interface BankDao {
     public List<Bank> getAvailableBanks();
     public Bank getBankById(long id);
-    public  Bank saveBank(Bank bank);
+    public  boolean saveBank(Bank bank);
     public boolean deleteBankById(long id);
 
 

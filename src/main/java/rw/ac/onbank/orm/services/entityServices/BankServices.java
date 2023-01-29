@@ -7,7 +7,7 @@ import java.util.List;
 
 public class BankServices {
     private BankDao bankDao;
-    public Bank saveBank(Bank bank){
+    public boolean saveBank(Bank bank){
        return   bankDao.saveBank(bank);
     }
     public List<Bank> getAllBanks(){

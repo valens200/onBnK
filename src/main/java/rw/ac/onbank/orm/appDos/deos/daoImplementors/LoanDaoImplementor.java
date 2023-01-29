@@ -2,49 +2,44 @@ package rw.ac.onbank.orm.appDos.deos.daoImplementors;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import rw.ac.onbank.orm.appDos.deos.daos.BankDao;
+import rw.ac.onbank.orm.appDos.deos.daos.LoanDao;
 import rw.ac.onbank.orm.appDos.deos.DAO;
-import rw.ac.onbank.orm.entities.Bank;
+import rw.ac.onbank.orm.entities.Loan;
 import rw.ac.onbank.orm.helpers.MessagesAndOptionsPrinter;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class BankDaoImplementor extends DAO implements BankDao {
-
-  
+public class LoanDaoImplementor extends DAO implements LoanDao {
     MessagesAndOptionsPrinter printer = new MessagesAndOptionsPrinter();
     Session session = getSession();
-    private boolean isSaved = false;
 
     @Override
-    public List<Bank> getAvailableBanks() {
-        return null;
+    public List<Loan> getAllLoans() {
+        return new ArrayList<Loan>();
     }
 
     @Override
-    public Bank getBankById(long id) {
+    public Loan getLoanById(long id) {
         return null;
     }
-
     @Override
-    public boolean saveBank(Bank bank) {
-
+    public boolean saveLoan(Loan loan) {
+        boolean isLoanSaved = false;
         try {
             Transaction transaction = session.beginTransaction();
-            session.saveOrUpdate(bank);
+            session.saveOrUpdate(loan);
             transaction.commit();
-            isSaved = true;
+            isLoanSaved = true;
         } catch (Exception e) {
             printer.print("Error" + e.getMessage());
-
         } finally {
             session.close();
         }
-        return  isSaved;
+        return  isLoanSaved;
     }
-
     @Override
-    public boolean deleteBankById(long id) {
+    public boolean deleteLoanById(long id) {
         return false;
     }
 }
