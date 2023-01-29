@@ -8,7 +8,6 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@NoArgsConstructor
 public  class Loan extends BankEntities {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,4 +32,7 @@ public  class Loan extends BankEntities {
         this.account.incrementBalance(actualAmount);
     }
 
+    public Loan() {
+
+    }
 }

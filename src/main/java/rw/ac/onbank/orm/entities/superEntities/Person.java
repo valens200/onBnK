@@ -11,19 +11,19 @@ import java.util.Date;
 
 @MappedSuperclass
 @Data
-public  class Person implements Serializable {
+abstract public  class Person implements Serializable {
     @NonNull
-    private String firstName;
+    protected String firstName;
     @NonNull
-    private String lastName;
+    protected String lastName;
     @NonNull
-    private String phone;
+    protected String phone;
     @NonNull
-    private Date dateOfBirth;
+    protected Date dateOfBirth;
     @NonNull
-    private String password;
-    private String securityQuestion;
-    private String securityAnswer;
+    protected String password;
+    protected String securityQuestion;
+    protected String securityAnswer;
     public Person ( String firstName, String  lastName, Date dob,  String phone, String password) throws Exception {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -38,7 +38,7 @@ public  class Person implements Serializable {
          this.phone = phone;
          this.dateOfBirth = dob;
 
-        this.password = PasswordHashing.hashPassword(password);
+         this.password = PasswordHashing.hashPassword(password);
 
          this.securityQuestion = question;
          this.securityAnswer = answer;

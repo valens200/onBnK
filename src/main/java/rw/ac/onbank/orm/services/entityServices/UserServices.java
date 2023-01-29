@@ -34,8 +34,8 @@ public class UserServices  extends Scanner {
         user.setFirstName(getScanner().nextLine());
         System.out.print("Enter your LastName");
         user.setLastName(getScanner().nextLine());
-        System.out.print("Enter your userName : ");
-        user.setUserName(getScanner().nextLine());
+        System.out.print("Enter your phone number : ");
+        user.setPhone(getScanner().nextLine());
         System.out.print("Enter your email : ");
         user.setEmail(getScanner().nextLine());
         System.out.print("Enter your password : ");
@@ -43,7 +43,7 @@ public class UserServices  extends Scanner {
         System.out.println("Enter your security question");
         user.setSecurityQuestion(getScanner().nextLine());
         System.out.println("Enter your security answer");
-        user.setAnswer(getScanner().next());
+        user.setSecurityAnswer(getScanner().next());
         return userDao.saveUser(user);
     }
 }
