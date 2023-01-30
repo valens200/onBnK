@@ -5,19 +5,17 @@
         <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
         <property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sms</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bank</property>
         <property name="hibernate.connection.username">valens</property>
         <property name="hibernate.connection.password">vava2003</property>
-
         <property name="hibernate.session_factory_name">SmisSessionFactory</property>
         <property name="hibernate.connection.pool_size">1</property>
         <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="hibernate.default_schema">sms</property>
+        <property name="hibernate.default_schema">bank</property>
         <property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
-
         <property name="current_session_context_class">thread</property>
-        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.show_sql">false</property>
         <property name="hibernate.format_sql">true</property>
         <property name="hibernate.use_sql_comments">false</property>
         <property name="hibernate.hbm2ddl.auto">create</property>
@@ -29,15 +27,14 @@
         <property name="hibernate.c3p0.acquire_increment">1</property>
         <property name="hibernate.c3p0.max_statements">1</property>
         <property name="hibernate.c3p0.timeout">1800</property>
-
         <!-- Models -->
-        <mapping class="rw.ac.onbank.orm.entities.Address" />
-        <mapping class="rw.ac.onbank.orm.entities.Bank" />
-        <mapping class="rw.ac.onbank.orm.entities.Beneficially" />
-        <mapping class="rw.ac.onbank.orm.entities.Card" />
-        <mapping class="rw.ac.onbank.orm.entities.Bill" />
-        <mapping class="rw.ac.onbank.orm.entities.Loan" />
         <mapping class="rw.ac.onbank.orm.entities.Account" />
+        <mapping class="rw.ac.onbank.orm.entities.Bank" />
+        <mapping class="rw.ac.onbank.orm.entities.Bill" />
+        <mapping class="rw.ac.onbank.orm.entities.Card" />
+        <mapping class="rw.ac.onbank.orm.entities.Deposit" />
+        <mapping class="rw.ac.onbank.orm.entities.Loan" />
+        <mapping class="rw.ac.onbank.orm.entities.Transaction" />
         <mapping class="rw.ac.onbank.orm.entities.User" />
     </session-factory>
 </hibernate-configuration>
