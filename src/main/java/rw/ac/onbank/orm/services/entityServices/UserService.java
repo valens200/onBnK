@@ -3,6 +3,7 @@ package rw.ac.onbank.orm.services.entityServices;
 import org.apache.poi.hssf.record.formula.functions.Na;
 import rw.ac.onbank.orm.appDos.deos.daoImplementors.UserDaoImplementor;
 import rw.ac.onbank.orm.appDos.deos.daos.UserDao;
+import rw.ac.onbank.orm.entities.Account;
 import rw.ac.onbank.orm.entities.User;
 import rw.ac.onbank.orm.helpers.InputValidator;
 import rw.ac.onbank.orm.helpers.MessagesAndOptionsPrinter;
@@ -54,9 +55,12 @@ public class UserService extends Scanner {
         user.setSecurityQuestion(getScanner().nextLine());
         System.out.println("Enter your security answer");
         user.setSecurityAnswer(getScanner().next());
+
+        Account userAccount=new Account();
         if(!userDao.saveUser(user)){
            printer.print("nott ");
         }
+
             return userDao.saveUser(user);
     }
 }

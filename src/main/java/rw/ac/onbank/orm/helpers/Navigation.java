@@ -88,6 +88,9 @@ public class Navigation  extends  Scanner{
                 printer.printChoices(options3);
                 break;
             case 2:
+                printer.printLine("Your bank acocunt is created successfully");
+                break;
+            case 3:
                 printer.printLine("Warning : By deleting your account all  your staffs including balance will be lost ");
                 printer.printLine("Are you sure you want to delete this account  Y(yes) or N(no)?");
                 if(getScanner().nextLine() == "y" || getScanner().nextLine() == "yes" || getScanner().nextLine() == "YES" || getScanner().nextLine().hashCode() == "YES".hashCode()){

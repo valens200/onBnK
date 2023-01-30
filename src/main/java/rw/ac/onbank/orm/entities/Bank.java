@@ -14,9 +14,8 @@ import javax.persistence.Id;
 public class Bank {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long getBankId;
-    private String bankName;
     private long bankId;
+    private String bankName;
     private String email;
     private String phoneNumber;
     private String securityQuestion;

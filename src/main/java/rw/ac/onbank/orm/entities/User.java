@@ -18,6 +18,7 @@ public class User extends Person {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "account_id")
     private Account account;
+
     @OneToMany(
             cascade = CascadeType.DETACH
     )

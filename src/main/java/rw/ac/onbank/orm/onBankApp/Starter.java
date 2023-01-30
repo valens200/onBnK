@@ -6,8 +6,7 @@ public class Starter {
     public static void main(String[] args) {
        printer.printLine("\t\t\t\t================================Welcome to our online banking application=====================================");
         printer.printLine("\t\t\t\t\t\t\t\t\t\t\t save as you earn for the best future preparation");
-        AppTransaction  app = new
-                AppTransaction();
+        AppTransaction  app = new AppTransaction();
         app.startApplication();
     }
 }
